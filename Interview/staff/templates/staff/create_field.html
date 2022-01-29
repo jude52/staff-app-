@@ -5,6 +5,7 @@
 <p>create field </p>
 
 <form action="" method="POST">
+{% csrf_token %}
 
   <label name="first_name" for="first_name">First Name</label>
   <input name="first_name" id="first_name"/>

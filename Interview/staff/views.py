@@ -10,6 +10,9 @@ def home(request):
     context = {"company": "NESCOLL"}
     return render(request, "staff/home.html", context)
 
+def render_create_form(request):
+    return render(request, "staff/create_field,html")
+
  
 class TestView(ListView):
     model = StaffInfo
@@ -21,5 +24,4 @@ class CreateTestView(CreateView):
     fields = [
        'first_name', 
         'last_name', 'department', 'job_title', 'start_date', 'end_date'
-
     ]
