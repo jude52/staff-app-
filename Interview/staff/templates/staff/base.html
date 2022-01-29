@@ -1,3 +1,13 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
 {% block head %} {% endblock %}
-Welcome to {{company}} staff search page !
-{% block content %} {% endblock %}
+<link rel="stylesheet" href="{% static 'staff/style.css' %}">
+
+<div class="title">
+<h1>Welcome to {{company}} staff search page ! </h1>
+</div>
+
+ {% block content %}{% endblock %}
+
+</html> 

@@ -1,3 +1,13 @@
 body{
     background-color: pink;
 }
+
+.title{
+    text-align: center;  
+}
+
+.search_categories{
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+}
