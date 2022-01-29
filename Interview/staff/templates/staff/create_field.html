@@ -3,7 +3,7 @@
 <html>
  {% block content %}
 <p>create field </p>
-
+{% comment %}
 <form action="" method="POST">
 {% csrf_token %}
 
@@ -28,8 +28,7 @@
   <input value="Submit" type="submit"/>
 </form>
 
-
-
+{% endcomment %}
 
 
 
