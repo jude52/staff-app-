@@ -4,8 +4,8 @@
  {% block content %}
 
 
- <a href="staff/input.html">input form</a>
-  <a href="staff/create_field.html">Create field</a>
+ <a href="{% url 'input' %}">input form</a>
+  <a href="{% url 'create_form' %}" >Create field</a>
 
 <div class="search_filter">
  </div> 
@@ -20,7 +20,14 @@
     <th>Start Date</th>
     <th>End Date</th>
 </tr>
+{%for staff in create_form%}
+{{staff}}
 
+<tr>
+    <td>{{staff.first_name}}</td>
+  
+</tr>
+{%endfor%}
 
 </table>
 

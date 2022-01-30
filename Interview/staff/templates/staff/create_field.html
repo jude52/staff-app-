@@ -1,37 +1,14 @@
 {% extends "staff/base.html" %} {% load static %} {% block head %} {% endblock %}
 <!DOCTYPE html>
 <html>
- {% block content %}
-<p>create field </p>
-{% comment %}
-<form action="" method="POST">
-{% csrf_token %}
 
-  <label name="first_name" for="first_name">First Name</label>
-  <input name="first_name" id="first_name"/>
-    <br>
-  <label name="last_name" for="last_name">Last Name</label>
-  <input name="last_name" id="last_name"/>
- <br>
-  <label name="department" for="department">Department </label>
-  <input name="department" id="department"/>
- <br>
-  <label name="job_title" for="job_title">Job Title</label>
-  <input name="job_title" id="job_title"/>
- <br>
-  <label name="start_date" for="start_date">Start Date</label>
-  <input name="start_date" id="start_date" type="date"/>
- <br>
-  <label name="end_date" for="end_date">End Date</label>
-  <input name="end_date" id="end_date" type="date"/>
- <br>
-  <input value="Submit" type="submit"/>
+ 
+{% block content %}
+<form method="POST" action="">
+  {% csrf_token %}
+  {{ form.as_p }}
+ 
 </form>
-
-{% endcomment %}
-
-
-
- {%endblock%}
+{% endblock %}
 
  </html>

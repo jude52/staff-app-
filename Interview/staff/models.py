@@ -14,4 +14,4 @@ class StaffInfo(models.Model):
         return self.first_name
 
     def get_absolute_url(self):
-        return "/staffinfo"
+        return "input.html"
