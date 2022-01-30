@@ -8,6 +8,14 @@
 <h1>Welcome to {{company}} staff search page ! </h1>
 </div>
 
+<nav class="navbar">
+ <a href="{%url 'home' %}">Home</a>
+ <a href="{%url 'create_form'%}">Create Entry</a>
+  <a href="{%url 'input' %}">View Results</a>
+ 
+
+</nav> 
+
  {% block content %}{% endblock %}
 
 </html> 

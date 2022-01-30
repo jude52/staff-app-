@@ -15,7 +15,7 @@ def home(request):
 
 
  
-class TestView(ListView):
+class Input(ListView):
     model = StaffInfo
     template_name = "staff/input.html"
 
@@ -24,3 +24,17 @@ class CreateStaffForm(CreateView):
     template_name = "staff/create_field.html"
     form_class = StaffForm
 
+# class DeleteStaff(ListView):
+#     model = StaffInfo
+#     template_name = "staff/delete.html"
+
+class DeleteStaffMember(DeleteView):
+    model = StaffInfo
+    template_name = "staff/delete.html"
+    success_url = "/"
+
+class UpdateStaffMember(UpdateView):
+    model = StaffInfo
+    template_name = "staff/update_info.html"
+    form_class = StaffForm 
+    success_url = "/"

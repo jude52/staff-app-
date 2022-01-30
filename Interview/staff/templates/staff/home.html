@@ -3,35 +3,21 @@
 <html>
  {% block content %}
 
-
- <a href="{% url 'input' %}">input form</a>
-  <a href="{% url 'create_form' %}" >Create field</a>
-
+ 
 <div class="search_filter">
  </div> 
 
-
-<table>
-<tr>
-    <th>First Name</th>
-    <th>Last Name </th>
-    <th>Department</th>
-    <th>Job title</th>
-    <th>Start Date</th>
-    <th>End Date</th>
-</tr>
-{%for staff in create_form%}
-{{staff}}
-
-<tr>
-    <td>{{staff.first_name}}</td>
-  
-</tr>
-{%endfor%}
-
-</table>
 
 
 
 </html> 
 {% endblock %}
+
+
+{%comment%}
+To Do:
+navbar
+delte buttons 
+edit buttons
+style
+{%endcomment%}

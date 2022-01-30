@@ -4,12 +4,16 @@
 
  
 {% block content %}
+ 
+  <p>Please update the boxes you'd like to update {{staff.first_name}} </p>
+ 
 <form method="POST" action="">
   {% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" value="Submit">
+  <input type="submit" value="Save">
  
 </form>
+
 {% endblock %}
 
  </html>

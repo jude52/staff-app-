@@ -4,12 +4,16 @@
 
  
 {% block content %}
-<form method="POST" action="">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value="Submit">
+
+  <p>Are you sure you want to delete staff member? </p>
  
+ <form method="post">
+   {% csrf_token %}
+ 
+  <input type="submit" value="Confirm" />
+
 </form>
+
 {% endblock %}
 
  </html>

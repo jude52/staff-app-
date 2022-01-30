@@ -6,3 +6,9 @@ body{
     text-align: center;  
 }
  
+nav{
+    display: flex;
+    flex-direction: column;
+    color: blue;
+    background-color: white;
+}
