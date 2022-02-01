@@ -1,7 +1,11 @@
-from django.contrib.auth.models import User
-import django_filters
+import django_filters 
+from .models import StaffInfo
 
-class UserFilter(django_filters.FilterSet):
+
+class StaffFilter(django_filters.FilterSet):
     class Meta:
         model = StaffInfo
-        fields = ['first_name', 'last_name', 'deapartment', 'job_title' ]
+        fields =  {'first_name': ['icontains'],
+		          'last_name': ['exact'],
+                  'department': ['gt'],
+                 }

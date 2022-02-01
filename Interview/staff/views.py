@@ -6,6 +6,7 @@ from .models import StaffInfo
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .form import StaffForm
+from .filters import StaffFilter, UserFilter
 
 # Create your views here.
 def home(request):
@@ -38,3 +39,8 @@ class UpdateStaffMember(UpdateView):
     template_name = "staff/update_info.html"
     form_class = StaffForm 
     success_url = "/"
+
+def search_filter(request):
+	staff= StaffInfo.object.all()
+	filter = StaffFilter(request.GET, queryset = staff)
+	return render(request, 'staff/filters.html', {'filter' : filter})
