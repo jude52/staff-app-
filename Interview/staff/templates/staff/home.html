@@ -1,7 +1,11 @@
-{% extends "staff/base.html" %} {% load static %} {% block head %} {% endblock %}
+{% extends "staff/base.html" %}{% load static %}
+ {% block head %} {% endblock %}
 <!DOCTYPE html>
 <html>
  {% block content %}
+ {% include "staff/filters.html" %}
+{% include "staff/input.html" %}
+ 
 
  
 

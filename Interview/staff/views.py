@@ -19,6 +19,7 @@ def home(request):
 class Input(ListView):
     model = StaffInfo
     template_name = "staff/input.html"
+   
 
 class CreateStaffForm(CreateView):
     model = StaffInfo
@@ -43,4 +44,4 @@ class UpdateStaffMember(UpdateView):
 def search_filter(request):
 	staff= StaffInfo.objects.all()
 	filter = StaffFilter(request.GET, queryset = staff)
-	return render(request, 'staff/filters.html', {'filter' : filter})
+	return render(request, 'staff/home.html', {'filter' : filter})

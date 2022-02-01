@@ -1,18 +1,30 @@
-{% extends "staff/base.html" %} {% load static %} {% block head %} {% endblock %}
+{% load static %} {% block head %} {% endblock %}
 <!DOCTYPE html>
 <html>
  {% block content %}
-
-  <form method="get">
-    {{ filter.form.as_p }}
+ <form method="get">
+    {{ filter.form.as_ul}}
     <button type="submit">Search</button>
   </form>
-  <ul>
-  {% for user in filter.qs %}
-    <li>{{user.first_name}} {{user.last_name}}</li>
-  {% endfor %}
-  </ul>
+ <table>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Department</th>
+        <th>Job Title</th>
+    </tr>
+    <tr>
+  {% for staff in filter.qs %}
 
+    <td>{{staff.first_name}} </td>
+    <td>{{staff.last_name}} </td>
+    <td>{{staff.department}}</td>
+    <td> {{staff.job_title}}</td>
+    </tr>
+  {% endfor %}
+ </table>
+
+ 
 
 </html> 
 {% endblock %}
