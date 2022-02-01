@@ -22,8 +22,12 @@
     <td>{{staff.department}}</td>
     <td>{{staff.job_title}}</td>
     <td>{{staff.start_date}}</td>
-    <td>{{staff.end_date}}</td>
-    
+    {%if staff.end_date == None%}
+      <td> </td>
+    {% else %}
+      <td>{{staff.end_date}}</td>
+    {%endif%}
+
     <td><a href="{%url 'update' staff.id%}"><button>Edit</button></a></td>
     <td><a href="{%url 'delete1' staff.id %}"><button>Delete</button></a></td>
    
