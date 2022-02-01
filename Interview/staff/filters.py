@@ -6,6 +6,7 @@ class StaffFilter(django_filters.FilterSet):
     class Meta:
         model = StaffInfo
         fields =  {'first_name': ['icontains'],
-		          'last_name': ['exact'],
-                  'department': ['gt'],
+		          'last_name': ['icontains'],
+                  'department': ['icontains'],
+                  'job_title': ['icontains']
                  }

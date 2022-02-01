@@ -14,7 +14,7 @@
     <th>End Date</th>
    
 </tr>
- {% for staff in object_list %}
+ {% for staff in object_list|dictsort:"last_name" %}
  
 <tr>
     <td>{{staff.last_name}}</td>

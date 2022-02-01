@@ -8,5 +8,7 @@ urlpatterns = [
    # path('<pk>/delete.html/', views.DeleteStaff.as_view()),
     # path("staff/delete.html/", views.DeleteStaff.as_view(), name='delete'),
     path("staff/<pk>/delete/", views.DeleteStaffMember.as_view(), name='delete1'),
-    path("staff/<pk>/update/", views.UpdateStaffMember.as_view(), name='update')
+    path("staff/<pk>/update/", views.UpdateStaffMember.as_view(), name='update'),
+
+    path("staff/filter.html", views.search_filter, name='filter'),
 ]
