@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'staff.apps.StaffConfig',
     'django_filters',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [

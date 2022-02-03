@@ -1,12 +1,19 @@
-{% extends "staff/base.html" %} {% load static %} {% block head %} {% endblock %}
+{% extends "staff/base.html" %} {% load static %} {% load bootstrap5 %} {% block head %} {% endblock %}
 <!DOCTYPE html>
 <html>
 
  
 {% block content %}
+
+
+
 <form method="POST" action="">
+
   {% csrf_token %}
-  {{ form.as_p }}
+
+  {% bootstrap_form form %}
+  
+
   <input type="submit" value="Submit">
  
 </form>

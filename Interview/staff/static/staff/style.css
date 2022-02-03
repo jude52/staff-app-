@@ -1,5 +1,6 @@
 body{
-    background-color: pink;
+    background-color: #E8E8E8;
+    font-family: 'Source Serif 4', sans-serif;
 }
 
 .title{
@@ -9,6 +10,9 @@ body{
 nav{
     display: flex;
     flex-direction: column;
-    color: blue;
-    background-color: white;
+    justify-content: space-between;
+  
+
 }
+
+ 

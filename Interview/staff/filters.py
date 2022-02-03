@@ -9,4 +9,4 @@ class StaffFilter(django_filters.FilterSet):
 		          'last_name': ['istartswith'],
                   'department': ['icontains'],
                   'job_title': ['icontains']
-                 }
+                 }  
