@@ -2,14 +2,30 @@
  {% extends "staff/base.html" %}{% load static %} {% block head %} {% endblock %}
 
  {% block content %}
+ <h1> Results</h1>
  
- 
- 
-<h1> Results</h1>
- 
- 
+{%for staff_info in queryset%}
+    <li>{{staff_info.first_name}}</li>
+</ul>
+{%endfor%}
+  
 
-<table class="staff">
+<form method="get">
+ 
+    <input name="q1" type="text" placeholder="first name" class="form-control form-control-lg" >
+   
+     <button type="submit" 
+     <a href ="{%url 'home'%}"}></a> Search</button>
+   </form>
+
+
+
+
+
+
+
+
+<table class="staff_results">
 <tr>
     <th>Last Name </th>
     <th>First Name</th>
@@ -19,7 +35,7 @@
     <th>End Date</th>
    
 </tr>
- {% for staff in object_list|dictsort:"last_name" %}
+{% for staff in object_list|dictsort:"last_name" %}
  
 <tr>
     <td>{{staff.last_name}}</td>
@@ -41,3 +57,5 @@
 {%endfor%}
 </table>
 {% endblock %}
+ 
+ 
