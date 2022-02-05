@@ -7,9 +7,5 @@ urlpatterns = [
     path("staff/create_field.html", views.CreateStaffForm.as_view(), name='create_form'),
     path("staff/<pk>/delete/", views.DeleteStaffMember.as_view(), name='delete'),
     path("staff/<pk>/update/", views.UpdateStaffMember.as_view(), name='update'),
-
-    #path("staff/input.html", views.filter_home, name="search_results_path" ),
-    #path("staff/filters.html", views.search_filter, name='filter'),
-    #path("staff/filters.html", views.SearchResultsView.as_view(), name="search_results" ),
-    #path("staff/input.html", views.SearchingForSearch.as_view(), name="searching_again")
+   # path("staff/filter.html/", views.FilterInput.as_view(), name="filter"),
 ]

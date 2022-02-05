@@ -1,6 +1,7 @@
 from dataclasses import fields
 from re import search, template
 from turtle import title
+from django.http import request
 from django.shortcuts import render
 from django.template import context
 from .models import StaffInfo
@@ -9,12 +10,7 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView, FormVi
 from .form import SearchFilterForm, StaffInputForm
 from .filters import StaffFilter
 from django.db.models import Q
-
-from django.contrib import messages
-from django.core.paginator import Paginator
-
-from django.core import serializers
-from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 # def home(request):
@@ -28,28 +24,31 @@ from django.http import JsonResponse
 #     return render(request, "staff/home.html", context)
 
 def home(request):
-    if 'q1' in request.GET:
-        q1=request.GET['q1']
-        searching = StaffInfo.objects.filter(first_name__icontains=q1)
-        print(searching)
-    else:
-        searching =StaffInfo.objects.all()
-    # Pagintion
-    # paginator=Paginator(posts,2)
-    # page_number=request.GET.get('page')
-    # posts_obj=paginator.get_page(page_number)
+    context = {"company": "NESCOLL"}
+    return render(request, "staff/home.html", context)
 
-    return render(request,"", {'filter':filter})
+# def search(request):
+#     if 'q1' in request.GET:
+#         q1=request.GET['q1']
+#         searching = StaffInfo.objects.filter(first_name__icontains=q1)
+#     else:
+#         searching =StaffInfo.objects.all()
+#     return render(request, "staff/input.html", {'searching':searching})
+
 
 class Input(ListView):
     model = StaffInfo
     template_name = "staff/input.html"
+    queryset = StaffInfo.objects.order_by('last_name')
+    #filter_me = queryset.filter(first_name__icontains='q')
 
-    # def search_filter(request):
-    #     staff= StaffInfo.objects.all()
-    #     filter = StaffFilter(request.GET, queryset = staff)
-    #     return render(request, "/", {'filter' : filter})
-  
+    # def get_queryset(self):
+    #     self.queryset = StaffInfo.objects.order_by('last_name')
+    #     for name in 'last_names':
+    #         look_up = self.queryset.filter(last_name__icontains=name.last_names)
+    #     return look_up
+    
+ 
 
 class CreateStaffForm(CreateView):
     model = StaffInfo
@@ -57,7 +56,6 @@ class CreateStaffForm(CreateView):
     form_class = StaffInputForm
     success_url = "/"
  
-
 class DeleteStaffMember(DeleteView):
     model = StaffInfo
     template_name = "staff/delete.html"
@@ -68,8 +66,6 @@ class UpdateStaffMember(UpdateView):
     template_name = "staff/update_info.html"
     form_class = StaffInputForm 
     success_url = "/"
- 
-
 
 
 # def search_input(request):
@@ -77,27 +73,41 @@ class UpdateStaffMember(UpdateView):
 #     filter1 = StaffFilter(request.GET, queryset = staff1)
 #     return render(request, "staff/input.html", {'filter' : filter1})
 
-# class FilterInput(UpdateView):
-#     model = StaffInfo
-#     template_name = "staff/input.html"
+
 
 # class SearchResultsView(ListView):
 #     model = StaffInfo
 #     template_name = 'staff/input.html'
 
-#     def get_queryset(self): # new
-#         return StaffInfo.objects.filter(name__icontains='name')
+    # def get_queryset(self):  
+    #     context = super(Search, self).get_queryset(**kwargs)
+    #     filter_set = StaffInfo.objects.all()
+    #     if self.request.GET.get('q1'):
+    #         first_name = self.request.GET.get('q1')
+    #         filter_set = filter_set.filter(first_name__icontains=q1)
+
+    #     context['first_name'] = StaffInfo.objects.all()
+    #     return context
 
 # class SearchingForSearch(FormView):
 #     model = StaffInfo
 #     template_name = "staff/update_info.html"
 #     form_class = SearchFilterForm
     
-def filter_home(request):
-    qs = StaffInfo.objects.all()
-    first_name_search = request.GET.get('first_name_search') #name from input 
-    context = {
-        'queryset': qs 
-    }
-    print(first_name_search)
-    return render(request, "", context)
+# def filter_home(request):
+#     qs = StaffInfo.objects.all()
+#     first_name_search = request.GET.get('first_name_search') #name from input.html 
+#     context = {
+#         'queryset': qs 
+# #     }
+#     print(first_name_search)
+#     return render(request, "", context)
+
+ 
+
+
+
+class FilterInput(UpdateView):
+    model = StaffInfo
+    template_name = "staff/filter.html"
+    #success_url = "staff/filter.html"

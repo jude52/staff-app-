@@ -1,31 +1,44 @@
 
+ <!DOCTYPE html>
+<html>
+ 
+
+
  {% extends "staff/base.html" %}{% load static %} {% block head %} {% endblock %}
 
  {% block content %}
+
+<script>alert("working")
+
+function filterSearch() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("last_names");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("staff_results");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}</script>
+
+
  <h1> Results</h1>
  
-{%for staff_info in queryset%}
-    <li>{{staff_info.first_name}}</li>
-</ul>
-{%endfor%}
-  
 
-<form method="get">
- 
-    <input name="q1" type="text" placeholder="first name" class="form-control form-control-lg" >
-   
-     <button type="submit" 
-     <a href ="{%url 'home'%}"}></a> Search</button>
-   </form>
+<input type="text" id="last_names" onkeyup="filterSearch()" placeholder="last name" title="Type in a name">
 
 
 
 
-
-
-
-
-<table class="staff_results">
+<table id="staff_results">
 <tr>
     <th>Last Name </th>
     <th>First Name</th>
@@ -35,7 +48,7 @@
     <th>End Date</th>
    
 </tr>
-{% for staff in object_list|dictsort:"last_name" %}
+{% for staff in object_list %}
  
 <tr>
     <td>{{staff.last_name}}</td>
@@ -57,5 +70,16 @@
 {%endfor%}
 </table>
 {% endblock %}
+
+<script>
+
+
+
+
+</script>
+
+
+
+
  
- 
+ </html>
