@@ -8,37 +8,44 @@
 
  {% block content %}
 
-<script>alert("working")
+<script> 
 
-function filterSearch() {
+ function filterSearch() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("last_names");
   filter = input.value.toUpperCase();
   table = document.getElementById("staff_results");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    td = tr[i].getElementsByTagName("td");
+    var flag = false;
+    for (var j =0; j <td.length; j++){
+      var tds = td[j];
+      if (tds.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        flag = true;
+      } 
+    }
+    if(flag){
         tr[i].style.display = "";
-      } else {
+    }
+    else {
         tr[i].style.display = "none";
-      }
-    }       
+    }
   }
-}</script>
+}
+
+</script>
 
 
  <h1> Results</h1>
  
 
-<input type="text" id="last_names" onkeyup="filterSearch()" placeholder="last name" title="Type in a name">
-
+<input type="text" id="last_names" onkeyup="filterSearch()" placeholder="Search by name, department, job title..." >
 
 
 
 <table id="staff_results">
+<thead>
 <tr>
     <th>Last Name </th>
     <th>First Name</th>
@@ -48,6 +55,8 @@ function filterSearch() {
     <th>End Date</th>
    
 </tr>
+</thead>
+<tbody>
 {% for staff in object_list %}
  
 <tr>
@@ -68,6 +77,7 @@ function filterSearch() {
  
 </tr>
 {%endfor%}
+<tbody>
 </table>
 {% endblock %}
 
