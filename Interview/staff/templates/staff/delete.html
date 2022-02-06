@@ -5,12 +5,12 @@
  
 {% block content %}
 
-  <p>Are you sure you want to delete staff member? </p>
+  <p id="delete-header">Are you sure you want to delete staff member? </p> 
  
- <form method="post">
+ <form method="post" id="delete-form">
    {% csrf_token %}
  
-  <input type="submit" value="Confirm" />
+  <input type="submit" value="Confirm"  id="confirm-delete-button"/>
 
 </form>
 
