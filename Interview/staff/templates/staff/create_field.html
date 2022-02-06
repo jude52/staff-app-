@@ -4,19 +4,23 @@
 
  
 {% block content %}
+<div id="background-div">
 
 
 
-<form method="POST" action="">
+<form method="POST" action="" id="create-form-id">
 
   {% csrf_token %}
-
+<div class="new_form">
+<h1 id="form_heading">Enter a new staff member </h1>
   {% bootstrap_form form %}
-  
+    <input type="submit" value="Submit" id="form-button">
+</div> 
 
-  <input type="submit" value="Submit">
- 
+
+
 </form>
+</div>
 {% endblock %}
 
  </html>

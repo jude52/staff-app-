@@ -11,6 +11,118 @@ nav{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  
+    background-color: #A9A9A9;
+    width: 10%;
+    line-height: 40px;
+    color: #E8E8E8;
+    position: fixed;
+
+}
+#home:hover,
+#create-entry:hover,
+#results:hover{
+    background-color: #E8E8E8;   
+    color: #A9A9A9;
+}
+
+a{
+    text-decoration: none;
+    color:#E8E8E8;
+    font-weight: bold;
+    font-size: 20px;
 }
  
+
+#background-div{
+    background-color: #A9A9A9;
+}
+#form_heading{
+    text-align: center;
+    color: #A9A9A9;
+    font-weight: bold;
+    background-color: #E8E8E8;
+}
+
+.new_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 10px;
+    content: 10px;
+    border: solid #E8E8E8;
+    border-width: 150px;
+
+  
+    
+
+}
+.form-control{
+    padding: 5px;
+    margin: 10px;
+}
+.form-label{
+    padding: 10px;
+    margin: 10px;
+    color: #E8E8E8;
+}
+#form-button
+{
+    padding: 10px;
+    margin: 10px;
+    width: 12%;
+    margin-left: 60px;
+    border-radius: 8%;
+    background-color: #E8E8E8;
+    color: gray;
+    font-size: 15px;
+
+}
+ 
+
+#results-heading{
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: center;
+   
+   
+}
+#last_names{
+    padding:5px;
+    width:20%;
+    border-radius: 4px;
+    margin-left: 150px;
+    margin-bottom: -30px;
+}
+
+#table-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid #E8E8E8;
+    border-width: 150px;
+    background-color: #A9A9A9;
+    margin-top: -100px;
+
+}
+
+#edit-button, #delete-button{
+    padding: 5px;
+    margin: 10px;
+    width: 90%;
+    border-radius: 8%;
+    background-color: #E8E8E8;
+    color: gray;
+    font-size: 15px;
+
+}
+th{
+    font-size: 22px;
+    font-weight:700;
+    padding: 10px;
+    border-bottom: solid #E8E8E8;
+}
+td{
+    border-bottom: solid #E8E8E8;
+    font-weight: bolder;
+}

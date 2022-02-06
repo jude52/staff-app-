@@ -16,7 +16,11 @@ from django.shortcuts import get_object_or_404
  
 
 def home(request):
-    context = {"company": "NESCOLL"}
+    context = {
+        "company": "NESCOLL",
+        "Entry": "Entry",
+        "Results": "Results"
+    }
     return render(request, "staff/home.html", context)
 
 class Input(ListView):

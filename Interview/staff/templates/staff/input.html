@@ -37,15 +37,18 @@
 </script>
 
 
- <h1> Results</h1>
+ <h1 id="results-heading"> Results</h1>
  
+
 
 <input type="text" id="last_names" onkeyup="filterSearch()" placeholder="Search by name, department, job title..." >
 
-
+<div id="table-div">
 
 <table id="staff_results">
+<div id="table-head">
 <thead>
+<div id="table-headings">
 <tr>
     <th>Last Name </th>
     <th>First Name</th>
@@ -55,10 +58,12 @@
     <th>End Date</th>
    
 </tr>
+<div>
 </thead>
+</div> 
 <tbody>
 {% for staff in object_list %}
- 
+ <div class="table-body">
 <tr>
     <td>{{staff.last_name}}</td>
     <td>{{staff.first_name}}</td>
@@ -71,14 +76,16 @@
       <td>{{staff.end_date}}</td>
     {%endif%}
 
-    <td><a href="{%url 'update' staff.id%}"><button>Edit</button></a></td>
-    <td><a href="{%url 'delete' staff.id %}"><button>Delete</button></a></td>
+    <td><a href="{%url 'update' staff.id%}"><button id="edit-button">Edit</button></a></td>
+    <td><a href="{%url 'delete' staff.id %}"><button id="delete-button">Delete</button></a></td>
    
  
 </tr>
+</div> 
 {%endfor%}
 <tbody>
 </table>
+</div> 
 {% endblock %}
 
 <script>
