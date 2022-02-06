@@ -1,10 +1,58 @@
 
+<<<<<<< HEAD
  {% extends "staff/base.html" %} {% load static %} {% block head %} {% endblock %}
+=======
+ <!DOCTYPE html>
+<html>
+ 
+
+
+ {% extends "staff/base.html" %}{% load static %} {% block head %} {% endblock %}
+>>>>>>> develop
 
  {% block content %}
 
+<script> 
 
-<table id="staff">
+ function filterSearch() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("last_names");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("staff_results");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td");
+    var flag = false;
+    for (var j =0; j <td.length; j++){
+      var tds = td[j];
+      if (tds.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        flag = true;
+      } 
+    }
+    if(flag){
+        tr[i].style.display = "";
+    }
+    else {
+        tr[i].style.display = "none";
+    }
+  }
+}
+
+</script>
+
+
+ <h1 id="results-heading"> Results</h1>
+ 
+
+
+<input type="text" id="last_names" onkeyup="filterSearch()" placeholder="Search by name, department, job title..." >
+
+<div id="table-div">
+
+<table id="staff_results">
+<div id="table-head">
+<thead>
+<div id="table-headings">
 <tr>
     <th>Last Name </th>
     <th>First Name</th>
@@ -14,8 +62,12 @@
     <th>End Date</th>
    
 </tr>
- {% for staff in object_list|dictsort:"last_name" %}
- 
+<div>
+</thead>
+</div> 
+<tbody>
+{% for staff in object_list %}
+ <div class="table-body">
 <tr>
     <td>{{staff.last_name}}</td>
     <td>{{staff.first_name}}</td>
@@ -28,14 +80,27 @@
       <td>{{staff.end_date}}</td>
     {%endif%}
 
-    <td><a href="{%url 'update' staff.id%}"><button>Edit</button></a></td>
-    <td><a href="{%url 'delete1' staff.id %}"><button>Delete</button></a></td>
+    <td><a href="{%url 'update' staff.id%}"><button id="edit-button">Edit</button></a></td>
+    <td><a href="{%url 'delete' staff.id %}"><button id="delete-button">Delete</button></a></td>
    
-
  
 </tr>
+</div> 
 {%endfor%}
+<tbody>
 </table>
-
-
+</div> 
 {% endblock %}
+
+<script>
+
+
+
+
+</script>
+
+
+
+
+ 
+ </html>

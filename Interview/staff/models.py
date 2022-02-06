@@ -16,3 +16,6 @@ class StaffInfo(models.Model):
 
     def get_absolute_url(self):
         return "input.html"
+
+    # def filter_by_last_name(self, last_name):
+    #     return models.objects.filter(self.last_name=last_name)

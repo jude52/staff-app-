@@ -5,15 +5,15 @@
  
 {% block content %}
  
-  <p>Please update the boxes you'd like to update {{staff.first_name}} </p>
+  <p id="update-header">Please edit the info you'd like to update {{staff.first_name}} </p>
  
-<form method="POST" action="">
+<form method="POST" action="" id="update-form">
   {% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" value="Save">
+  <input type="submit" value="Save" id="update-button">
  
 </form>
 
 {% endblock %}
-
+ 
  </html>

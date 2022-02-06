@@ -1,11 +1,46 @@
+<<<<<<< HEAD
 {% extends "staff/base.html" %}  {% load static %} {% block head %} {% endblock %}
+=======
+>>>>>>> develop
 <!DOCTYPE html>
 <html>
+{% extends "staff/base.html" %}{% load static %}
+{% load bootstrap5 %}
+ {% block head %} {% endblock %}
+
+
  {% block content %}
  <form method="get">
-    {{ filter.form.as_ul}}
+    {{ filter.form.as_p}}
+   
     <button type="submit">Search</button>
   </form>
+  <table>
+  <tr>
+    <th>Last Name </th>
+    <th>First Name</th>
+    <th>Department</th>
+    <th>Job title</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+   
+</tr>
+  {% for staff in filter.qs %}
+<tr>
+    <td>{{staff.last_name}}</td>
+    <td>{{staff.first_name}}</td>
+    <td>{{staff.department}}</td>
+    <td>{{staff.job_title}}</td>
+    <td>{{staff.start_date}}</td>
+    {%if staff.end_date == None%}
+      <td> </td>
+    {% else %}
+      <td>{{staff.end_date}}</td>
+    {%endif%}
+  {%endfor%}
+
+
+  {%comment%}
  <table>
     <tr>
         <th>Name</th>
@@ -24,7 +59,7 @@
   {% endfor %}
  </table>
 
- 
+  {%endcomment%}
 
 </html> 
 {% endblock %}
